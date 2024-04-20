@@ -1,7 +1,14 @@
 class Level{
     completed: boolean;
-    constructor(){
+    required_score: number;
+    constructor(required_score: number){
+        this.required_score = required_score;
         this.completed = false;
+        console.log("Level created")
+    }
+    complete(){
+        this.completed = true;
+        console.log("Level completed")
     }
 }
 class Player{
@@ -15,10 +22,11 @@ class Player{
     }
 }
 class Trash{
-    static options = ["paper", "plastic", "mixed"] //itd
+    static category_options = ["paper", "plastic", "mixed"] //itd
     name: string;
     category: string;
     constructor(name: string, category: string){
+        console.log("Trash created")
         this.name = name;
         this.category = category;
     }
@@ -26,6 +34,7 @@ class Trash{
 class Can{
     category: string;
     constructor(category: string){
+        console.log("Can created")
         this.category = category;
     }
 }
