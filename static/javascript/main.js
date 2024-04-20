@@ -7,12 +7,11 @@ function generateTrash() {
 
 const player = new Player("Professional gamer");
 
-// current trash ki je bil throwan
+// začetni trash
 const current_trash = new Trash("paper");
 
-//can katerega je zadel trash
+// ko se zgodi swipe event
 const current_can = new Can("paper");
-
 if (current_trash.category == current_can.category) {
     player.score += 1;
     current_trash = generateTrash()
