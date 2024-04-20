@@ -1,27 +1,44 @@
-//example class usage
+class MainClass {
+    constructor() {}
 
-function generateTrash() {
-    random_category = Trash.category_options[Math.floor(Math.random() * Trash.category_options.length)];
-    return new Trash(category);
-}
-
-const player = new Player("Professional gamer");
-
-// začetni trash
-const current_trash = new Trash("paper");
-
-// ko se zgodi swipe event
-const current_can = new Can("paper");
-if (current_trash.category == current_can.category) {
-    player.score += 1;
-    current_trash = generateTrash()
-    if (player.score >= required_score) {
-        // level complete screen
+    generateTrash() {
+        random_category = Trash.category_options[Math.floor(Math.random() * Trash.category_options.length)];
+        return new Trash(category);
     }
-}
-else {
-    if (player.score > player.record){
-        player.record = player.score;
+
+    shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
     }
-    // game over screen
+
+    number_of_cans = 2;
+    required_score = 4;
+    level = new Level(required_score);
+    player = new Player("Professional gamer");
+
+    current_trash = this.generateTrash();
+    possible_can_categories = [...Trash.category_options]
+    //Remove current trash category from possible can categories
+    possible_can_categories = possible_can_categories.filter(can => can !== current_trash.category);
+    possible_can_categories = shuffleArray(possible_can_categories);
+    selectedCans = possible_can_categories.slice(0, number_of_cans-1);
+    
+    playGame() {
+        if (this.current_trash.category == current_can.category) {
+            player.score += 1;
+            current_trash = generateTrash()
+            if (player.score >= level.required_score) {
+                level.complete();
+                level = new Level(level.required_score+3);
+            }
+        }
+        else {
+            if (player.score > player.record){
+                player.record = player.score;
+            }
+        }
+    }
 }
