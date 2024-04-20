@@ -31,3 +31,13 @@ import TopControls from "@/components/ui-components/tab/TopControls.vue"
 import BoxInfo from "@/components/ui-components/gameElement/BoxInfo.vue"
 import BackgroudImage from "@/components/ui-components/gameElement/BackgroundImage.vue"
 </script>
+<style scoped>
+  .trash-footer {
+    position: absolute;
+    bottom: 0;
+  }
+  .trash-box-inside {
+    transform: scale(0.8);
+  }
+
+</style>

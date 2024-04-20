@@ -1,10 +1,17 @@
-class Level{
+export class Level{
     completed: boolean;
-    constructor(){
+    required_score: number;
+    constructor(required_score: number){
+        this.required_score = required_score;
         this.completed = false;
+        console.log("Level created")
+    }
+    complete(){
+        this.completed = true;
+        console.log("Level completed")
     }
 }
-class Player{
+export class Player{
     username: string;
     score: number;
     record: number;
@@ -14,18 +21,19 @@ class Player{
         this.record = 0;
     }
 }
-class Trash{
-    static options = ["paper", "plastic", "mixed"] //itd
+export class Trash{
+    static categories = ["paper", "plastic", "mixed"] //itd
     name: string;
     category: string;
-    constructor(name: string, category: string){
-        this.name = name;
+    constructor(category: string){
+        console.log("Trash created")
         this.category = category;
     }
 }
-class Can{
+export class Can{
     category: string;
     constructor(category: string){
+        console.log("Can created")
         this.category = category;
     }
 }
