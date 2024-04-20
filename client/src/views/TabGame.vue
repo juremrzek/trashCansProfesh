@@ -4,6 +4,7 @@
       <top-controls>
         <template #start>
           <font-awesome-icon
+            @click="routes.push({ name: 'roadmap' })"
             :icon="['fas', 'x']"
             size="2xl"
             fixed-width
@@ -30,14 +31,17 @@ import TrashBox from "@/components/ui-components/gameElement/TrashBox.vue"
 import TopControls from "@/components/ui-components/tab/TopControls.vue"
 import BoxInfo from "@/components/ui-components/gameElement/BoxInfo.vue"
 import BackgroudImage from "@/components/ui-components/gameElement/BackgroundImage.vue"
-</script>
-<style scoped>
-  .trash-footer {
-    position: absolute;
-    bottom: 0;
-  }
-  .trash-box-inside {
-    transform: scale(0.8);
-  }
+import { useRouter } from "vue-router"
 
+const routes = useRouter()
+</script>
+
+<style scoped>
+.trash-footer {
+  position: absolute;
+  bottom: 0;
+}
+.trash-box-inside {
+  transform: scale(0.8);
+}
 </style>
