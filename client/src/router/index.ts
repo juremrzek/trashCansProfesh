@@ -14,9 +14,9 @@ const routes: Array<RouteRecordRaw> = [
     redirect: { name: "game" },
   },
   {
-    path: "/roadmap",
-    name: "roadmap",
-    component: TabRoadMap,
+    path: "/game",
+    name: "game",
+    component: TabGame,
   },
   {
     path: "/main/",
@@ -24,9 +24,9 @@ const routes: Array<RouteRecordRaw> = [
     component: TabController,
     children: [
       {
-        path: "game",
-        name: "game",
-        component: TabGame,
+        path: "/roadmap",
+        name: "roadmap",
+        component: TabRoadMap,
       },
       {
         path: "profile",
