@@ -14,18 +14,19 @@ export class Level{
 export class Player{
     username: string;
     score: number;
-    record: number;
+    maxStreak: number;
     fails: number;
+    streak: number;
     constructor(username: string){
         this.username = username;
         this.score = 0;
-        this.record = 0;
+        this.streak = 0;
+        this.maxStreak = 0;
         this.fails = 0;
     }
 }
 export class Trash{
     static categories = ["paper", "plastic", "mixed"] //itd
-    name: string;
     category: string;
     constructor(category: string){
         console.log("Trash created")

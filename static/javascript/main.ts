@@ -13,11 +13,11 @@ class MainClass {
         let can_categories = [...Trash.categories]
         can_categories = can_categories.filter(can => can !== this.current_trash.category);
         can_categories = this.shuffleArray(can_categories);
-        can_categories = can_categories.slice(0, number_of_cans-1);
         let cans: Can[] = [];
-        for(let i=0; i<can_categories.length; i++){
+        for(let i=0; i<number_of_cans-1; i++){
             cans.push(new Can(can_categories[i]));
         }
+        console.log(cans);
         return cans;
     }
 
@@ -30,7 +30,7 @@ class MainClass {
     }
 
     number_of_cans = 2;
-    required_score = 4;
+    required_score = 5;
     level = new Level(this.required_score);
     player = new Player("Professional gamer");
 
@@ -40,6 +40,7 @@ class MainClass {
     throwTrash(player:Player, level:Level, trash:Trash, can:Can) {
         if (trash.category == can.category) {
             player.score += 1;
+            player.streak += 1;
             trash = this.generateTrash()
             if (player.score >= level.required_score) {
                 level.complete();
@@ -48,9 +49,11 @@ class MainClass {
             }
         }
         else {
-            if (player.score > player.record){
-                player.record = player.score;
+            if (player.streak > player.maxStreak){
+                player.maxStreak = player.score;
             }
+            player.streak = 0;
+            player.fails += 1;
         }
     }
 }
