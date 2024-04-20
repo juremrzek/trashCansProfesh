@@ -167,3 +167,7 @@ ul {
 input:focus {
   outline: none;
 }
+
+.active-tab {
+  filter: brightness(100);
+}

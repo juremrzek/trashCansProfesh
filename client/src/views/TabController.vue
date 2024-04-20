@@ -13,7 +13,7 @@
           @click.prevent="redirectTo('game')"
           :class="selectedTabStyle('game')"
         >
-          <font-awesome-icon :icon="['fas', 'paw']" size="2xl" fixed-width />
+        <img src="../../public/assets/designImages/menu/user.svg" width="40px"/>
         </ion-tab-button>
         <!-- Profile -->
         <ion-tab-button
@@ -21,7 +21,9 @@
           @click.prevent="redirectTo('profile')"
           :class="selectedTabStyle('profile')"
         >
-          <font-awesome-icon :icon="['fas', 'paw']" size="2xl" fixed-width />
+
+        <img class="svg-color-change" src="../../public/assets/designImages/menu/games.svg" alt="Games SVG">
+
         </ion-tab-button>
         <!-- Roadmap -->
         <ion-tab-button
@@ -29,7 +31,7 @@
           @click.prevent="redirectTo('roadmap')"
           :class="selectedTabStyle('roadmap')"
         >
-          <font-awesome-icon :icon="['fas', 'paw']" size="2xl" fixed-width />
+        <img src="../../public/assets/designImages/menu/recycle-bin.svg"/>
         </ion-tab-button>
         <!-- Misshups -->
         <ion-tab-button
@@ -37,7 +39,7 @@
           @click.prevent="redirectTo('misshups')"
           :class="selectedTabStyle('misshups')"
         >
-          <font-awesome-icon :icon="['fas', 'paw']" size="2xl" fixed-width />
+        <img src="../../public/assets/designImages/menu/laugh.svg"/>
         </ion-tab-button>
       </ion-tab-bar>
       <!-- End bottom tool bar -->
@@ -77,4 +79,8 @@ ion-tabs {
   width: 100vw;
   border-bottom: 5px solid var(--ion-color-tertiary);
 }
+img {
+  width: 40px;
+  /*filter: brightness(100);*/
+} 
 </style>
