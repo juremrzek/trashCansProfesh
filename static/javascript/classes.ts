@@ -15,10 +15,12 @@ export class Player{
     username: string;
     score: number;
     record: number;
+    fails: number;
     constructor(username: string){
         this.username = username;
         this.score = 0;
         this.record = 0;
+        this.fails = 0;
     }
 }
 export class Trash{
