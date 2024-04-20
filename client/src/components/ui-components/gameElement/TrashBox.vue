@@ -9,17 +9,18 @@
 
   <style scoped>
   .trash-box {
-    width: 150px; 
-    height: 150px; 
+    width: clamp(80px, 8vw, 8vw);
+    height: clamp(80px, 8vw, 8vw);
     background: linear-gradient(var(--ion-color-secondary), var(--ion-color-secondary-dark-shade));
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .trash-box-border {
-    width: 170px; 
-    height: 170px; 
-    background:  linear-gradient(var(--ion-color-danger-contrast), var(--ion-background-color), #A3E5FF);
+    width: clamp(90px, 9vw, 9vw);
+    height: clamp(90px, 9vw, 9vw);
+    background:  linear-gradient(var(--ion-color-danger-contrast), #A3E5FF);
     border-radius: 10px;
     display: flex;
     align-items: center;
