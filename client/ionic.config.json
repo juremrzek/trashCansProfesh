@@ -1,0 +1,8 @@
+{
+  "name": "lovec",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue",
+  "swipeBackEnabled": true
+}
