@@ -4,6 +4,7 @@
       <!-- Component view -->
       <ion-router-outlet></ion-router-outlet>
 
+      <div class="line"></div>
       <!-- Bootom tool bar -->
       <ion-tab-bar slot="bottom">
         <!-- Game -->
@@ -64,5 +65,16 @@ const { selectedTabStyle, redirectTo } = useTabNavigation()
     margin-left: 20vw;
     margin-right: 20vw;
   }
+}
+
+ion-tabs {
+  background-color: var(--ion-color-primary);
+}
+
+.line {
+  height: 2px;
+  background: black;
+  width: 100vw;
+  border-bottom: 5px solid var(--ion-color-tertiary);
 }
 </style>
