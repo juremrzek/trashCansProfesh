@@ -10,28 +10,33 @@
         <!-- Game -->
         <ion-tab-button
           tab="game"
-          @click.prevent="redirectTo('game')"
-          :class="selectedTabStyle('game')"
+          @click.prevent="redirectTo('profile')"
+          :class="selectedTabStyle('profile')"
         >
-        <img src="../../public/assets/designImages/menu/user.svg" width="40px"/>
+          <img
+            src="../../public/assets/designImages/menu/user.svg"
+            width="40px"
+          />
         </ion-tab-button>
         <!-- Profile -->
         <ion-tab-button
           tab="profile"
-          @click.prevent="redirectTo('profile')"
-          :class="selectedTabStyle('profile')"
+          @click.prevent="redirectTo('roadmap')"
+          :class="selectedTabStyle('roadmap')"
         >
-
-        <img class="svg-color-change" src="../../public/assets/designImages/menu/games.svg" alt="Games SVG">
-
+          <img
+            class="svg-color-change"
+            src="../../public/assets/designImages/menu/games.svg"
+            alt="Games SVG"
+          />
         </ion-tab-button>
         <!-- Roadmap -->
         <ion-tab-button
           tab="roadmap"
-          @click.prevent="redirectTo('roadmap')"
-          :class="selectedTabStyle('roadmap')"
+          @click.prevent="redirectTo('info')"
+          :class="selectedTabStyle('info')"
         >
-        <img src="../../public/assets/designImages/menu/recycle-bin.svg"/>
+          <img src="../../public/assets/designImages/menu/recycle-bin.svg" />
         </ion-tab-button>
         <!-- Misshups -->
         <ion-tab-button
@@ -39,7 +44,7 @@
           @click.prevent="redirectTo('misshups')"
           :class="selectedTabStyle('misshups')"
         >
-        <img src="../../public/assets/designImages/menu/laugh.svg"/>
+          <img src="../../public/assets/designImages/menu/laugh.svg" />
         </ion-tab-button>
       </ion-tab-bar>
       <!-- End bottom tool bar -->
@@ -82,5 +87,5 @@ ion-tabs {
 img {
   width: 40px;
   /*filter: brightness(100);*/
-} 
+}
 </style>

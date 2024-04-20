@@ -7,6 +7,7 @@ import TabGame from "@/views/TabGame.vue"
 import TabProfile from "@/views/TabProfile.vue"
 import TabRoadMap from "@/views/TabRoadmap.vue"
 import TabMisshups from "@/views/TabMisshups.vue"
+import TabInfo from "@/views/TabInfo.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -37,6 +38,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "misshups",
         name: "misshups",
         component: TabMisshups,
+      },
+      {
+        path: "info",
+        name: "info",
+        component: TabInfo,
       },
     ],
   },
