@@ -17,25 +17,23 @@ export const useGameStore = defineStore("game", () => {
   }
 
   const getBins = () => {
-    // TODO: dodaj random vrednosti glede na level.number
-      switch(currentLevel.number) {
-        case 1: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
-          levelsStore.cans.find((can: Can) => can.category === "mixed")
-        ];
-        case 2: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
-          levelsStore.cans.find((can: Can) => can.category === "mixed"),
-          levelsStore.cans.find((can: Can) => can.category === "bio")
-        ];
-        case 3: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
-          levelsStore.cans.find((can: Can) => can.category === "fabric"),
-          levelsStore.cans.find((can: Can) => can.category === "bio")
-        ];
-        case 4: return [levelsStore.cans.find((can: Can) => can.category === "dangerous"),
-          levelsStore.cans.find((can: Can) => can.category === "fabric"),
-          levelsStore.cans.find((can: Can) => can.category === "bio")
-        ];
-      }
-    const arr = [currentLevel.value?.current_pair?.can]
+    switch(currentLevel.number) {
+      case 1: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
+        levelsStore.cans.find((can: Can) => can.category === "mixed")
+      ];
+      case 2: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
+        levelsStore.cans.find((can: Can) => can.category === "mixed"),
+        levelsStore.cans.find((can: Can) => can.category === "bio")
+      ];
+      case 3: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
+        levelsStore.cans.find((can: Can) => can.category === "fabric"),
+        levelsStore.cans.find((can: Can) => can.category === "bio")
+      ];
+      case 4: return [levelsStore.cans.find((can: Can) => can.category === "dangerous"),
+        levelsStore.cans.find((can: Can) => can.category === "fabric"),
+        levelsStore.cans.find((can: Can) => can.category === "bio")
+      ];
+    }
   }
 
   const evaluate = (selectedCan: string) => {
