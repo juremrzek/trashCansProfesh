@@ -18,20 +18,24 @@ export const useGameStore = defineStore("game", () => {
 
   const getBins = () => {
     switch(currentLevel.number) {
-      case 1: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
-        levelsStore.cans.find((can: Can) => can.category === "mixed")
+      case 1: return [levelsStore.cans.value.find((can: Can) => can.category === "plastic"),
+        levelsStore.cans.value.find((can: Can) => can.category === "mixed")
       ];
-      case 2: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
-        levelsStore.cans.find((can: Can) => can.category === "mixed"),
-        levelsStore.cans.find((can: Can) => can.category === "bio")
+      case 2: return [levelsStore.cans.value.find((can: Can) => can.category === "plastic"),
+        levelsStore.cans.value.find((can: Can) => can.category === "mixed"),
+        levelsStore.cans.value.find((can: Can) => can.category === "bio")
       ];
       case 3: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
-        levelsStore.cans.find((can: Can) => can.category === "fabric"),
-        levelsStore.cans.find((can: Can) => can.category === "bio")
+        levelsStore.cans.value.find((can: Can) => can.category === "fabric"),
+        levelsStore.cans.value.find((can: Can) => can.category === "bio")
       ];
       case 4: return [levelsStore.cans.find((can: Can) => can.category === "dangerous"),
-        levelsStore.cans.find((can: Can) => can.category === "fabric"),
-        levelsStore.cans.find((can: Can) => can.category === "bio")
+        levelsStore.cans.value.find((can: Can) => can.category === "fabric"),
+        levelsStore.cans.value.find((can: Can) => can.category === "bio")
+      ];
+      default: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
+        levelsStore.cans.value.find((can: Can) => can.category === "paper"),
+        levelsStore.cans.value.find((can: Can) => can.category === "glass")
       ];
     }
   }
