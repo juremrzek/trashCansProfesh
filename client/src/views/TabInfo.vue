@@ -3,7 +3,9 @@
     <template #header>
       <tab-header>header </tab-header>
     </template>
-    <template #body> koda koda koda koda koda koda </template>
+    <template #body>
+      <image-circle></image-circle>
+    </template>
   </tab-template>
 </template>
 
@@ -11,4 +13,5 @@
 import TabTemplate from "@/components/ui-components/tab/TabTemplate.vue"
 import TabHeader from "@/components/ui-components/tab/TabHeader.vue"
 import TabNoElements from "@/components/ui-components/tab/TabNoElements.vue"
+import ImageCircle from "@/components/ui-components/gameElement/ImageCircle.vue"
 </script>
