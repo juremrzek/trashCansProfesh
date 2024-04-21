@@ -4,13 +4,15 @@
         <img src="../../../../public/assets/trashImages/kante/embalaza.png" alt="Trash Can" class="kanta-img" />
       </div>
       <div
-        v-for="(item, index) in items"
+        v-for="(item, index) in images"
         :key="index"
         class="center-circles"
       >
         <img src="../../../../public/assets/designImages/game/circle.svg" alt="Trash Can"
         :style="getCircleStyle(index)"/>
-        <span :style="getItemStyle(index)">{{ item }}</span>
+        <span :style="getItemStyle(index)">
+            <img :src="item" :alt="altText" width="5%" class="trash-images">
+        </span>
       </div>
     </div>
   </template>
@@ -19,19 +21,22 @@
   export default {
     data() {
       return {
-        items: ["Item 1", "Item 2", "Item 3", "Item 4", 'Item5'], // Example items
+        items: [], // Example items
         radius: 140, //
         centerX: 150, 
         centerY: 150, 
         degreesBetweenItems: 90, 
       };
+    }, 
+    created() {
+        this.items = this.images; // Initialize items after component creation
     },
     methods: {
       getItemPosition(index) {
         const totalItems = this.items.length;
         const angle = ((360 / totalItems) * index - 90) * (Math.PI / 180);
-        console.log("Item index: " + index + "angle" +  angle);
         const x = this.centerX + this.radius * Math.cos(angle);
+        console.log(this.items);
         const y = this.centerY + this.radius * Math.sin(angle);
         return { x, y, angle };
       },
@@ -39,7 +44,6 @@
         const { x, y, angle } = this.getItemPosition(index);
         const rotation = angle * (180 / Math.PI) -30;
         const flip = angle > Math.PI / 2 && angle < (Math.PI * 3) / 2;
-        const verticalFlip = angle > Math.PI;
         return {
           position: "absolute",
           left: `${x}px`,
@@ -52,9 +56,19 @@
         return {
           position: "absolute",
           left: `${x + 80}px`,
-          top: `${y + 90}px`
+          top: `${y + 70}px`
      };
     },
+    },
+    props: {
+      images: {
+        type: Array,
+        required: true,
+      },
+      altText: {
+        type: String,
+        required: true,
+      },
     },
     };
   </script>
@@ -74,13 +88,19 @@
   }
   .center-circles {
     position: relative;
-    left: 25%;
-    bottom: 15%;
+    left: 20%;
   }
   .kanta-img {
     position: relative;
     width: 30%;
-    left: 34%;
+    left: 25%;
   }
+  .trash-images {
+    /* size: 40%; */
+    width: 40%;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
   </style>
   
