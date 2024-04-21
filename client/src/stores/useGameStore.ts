@@ -3,6 +3,7 @@ import { useLevelsStore } from "@/stores/useLevelsStore"
 import { usePlayerStore } from "@/stores/usePlayerStore"
 import { Level } from "@/entities/Level"
 import { computed, ref } from "vue"
+import { Can } from "@/entities/Can"
 
 export const useGameStore = defineStore("game", () => {
   const levelsStore = useLevelsStore()
@@ -16,8 +17,23 @@ export const useGameStore = defineStore("game", () => {
   }
 
   const getBins = () => {
-    // TODO: dodaj random vrednosti glede na level.number
-    return [currentLevel.value?.current_pair?.can]
+    switch(currentLevel.number) {
+      case 1: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
+        levelsStore.cans.find((can: Can) => can.category === "mixed")
+      ];
+      case 2: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
+        levelsStore.cans.find((can: Can) => can.category === "mixed"),
+        levelsStore.cans.find((can: Can) => can.category === "bio")
+      ];
+      case 3: return [levelsStore.cans.find((can: Can) => can.category === "plastic"),
+        levelsStore.cans.find((can: Can) => can.category === "fabric"),
+        levelsStore.cans.find((can: Can) => can.category === "bio")
+      ];
+      case 4: return [levelsStore.cans.find((can: Can) => can.category === "dangerous"),
+        levelsStore.cans.find((can: Can) => can.category === "fabric"),
+        levelsStore.cans.find((can: Can) => can.category === "bio")
+      ];
+    }
   }
 
   const evaluate = (selectedCan: string) => {
