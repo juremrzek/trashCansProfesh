@@ -13,11 +13,12 @@ class MainClass {
         let can_categories = [...Trash.categories]
         can_categories = can_categories.filter(can => can !== this.current_trash.category);
         can_categories = this.shuffleArray(can_categories);
+        console.log(can_categories)
         let cans: Can[] = [];
-        for(let i=0; i<number_of_cans-1; i++){
+        cans.push(new Can(this.current_trash.category));
+        for(let i=1; i<number_of_cans; i++){
             cans.push(new Can(can_categories[i]));
         }
-        console.log(cans);
         return cans;
     }
 
@@ -29,13 +30,12 @@ class MainClass {
         return array;
     }
 
-    number_of_cans = 2;
     required_score = 5;
-    level = new Level(this.required_score);
+    level = new Level(this.required_score, 2);
     player = new Player("Professional gamer");
 
     current_trash = this.generateTrash();
-    cans = this.generateCans(this.number_of_cans);
+    cans = this.generateCans(this.level.number_of_cans);
     
     throwTrash(player:Player, level:Level, trash:Trash, can:Can) {
         if (trash.category == can.category) {
@@ -45,7 +45,7 @@ class MainClass {
             if (player.score >= level.required_score) {
                 level.complete();
                 this.required_score += 3
-                level = new Level(this.required_score);
+                level = new Level(this.required_score, 2);
             }
         }
         else {
@@ -57,3 +57,9 @@ class MainClass {
         }
     }
 }
+let c = new MainClass();
+console.log(c.generateCans(2))
+c.throwTrash(c.player, c.level, c.current_trash, c.cans[0])
+console.log(c.player)
+console.log(c.level)
+console.log(c.cans)
