@@ -1,13 +1,19 @@
 <template>
-  <h3 class="ion-text-center">
-    <img
-      src="../../../../public/assets/designImages/roadmap/water-bottle-filled.svg"
-      width="40px"
-    />
-    15
-  </h3>
-  <div class="line"></div>
+  <div>
+    <h3 class="ion-text-center">
+      <font-awesome-icon :icon="['fas', 'bottle-water']" size="xs" />
+      {{ score }}
+    </h3>
+    <div class="line"></div>
+  </div>
 </template>
+
+<script setup lang="ts">
+import { usePlayerStore } from "@/stores/usePlayerStore"
+import { storeToRefs } from "pinia"
+
+const { score } = storeToRefs(usePlayerStore())
+</script>
 
 <style scoped>
 h3 {
