@@ -7,7 +7,6 @@
 
       <template v-else-if="elements.length == 0">
         <font-awesome-icon :icon="['fas', 'ban']" class="fa-8x" fixed-width />
-        <p class="no-elements">No elements</p>
       </template>
     </div>
   </div>

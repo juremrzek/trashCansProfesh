@@ -17,9 +17,18 @@
           </box-info>
         </template>
       </top-controls>
+      <can-container v-if="!gameOver">
+        <trash-box
+          @click="evaluate(can?.category as string)"
+          v-for="can in getBins()"
+          :key="can?.category"
+        ></trash-box>
+      </can-container>
       <backgroud-image>
         <trash-footer>
-          <trash-box></trash-box>
+          <!-- getTrash -->
+          <trash-box v-if="!gameOver"></trash-box>
+          <p v-else>Konec igre</p>
         </trash-footer>
       </backgroud-image>
     </template>
@@ -36,10 +45,20 @@ import TrashFooter from "@/components/ui-components/TrashFooter.vue"
 import CanContainer from "@/components/ui-components/CanContainer.vue"
 import { useRouter } from "vue-router"
 import { usePlayerStore } from "@/stores/usePlayerStore"
+import { useGameStore } from "@/stores/useGameStore"
 import { storeToRefs } from "pinia"
+import { onMounted } from "vue"
 const { streak } = storeToRefs(usePlayerStore())
 
+const gameStore = useGameStore()
+const { getTrash, getBins, evaluate } = gameStore
+const { currentLevel, gameOver } = storeToRefs(gameStore)
+
 const routes = useRouter()
+
+onMounted(() => {
+  console.log(getBins())
+})
 </script>
 
 <style scoped>

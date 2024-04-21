@@ -39,8 +39,6 @@ defineProps({
 .tab-body {
   width: 100%;
   height: 100%;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
   background-color: var(--ion-background-color);
 }
 
@@ -52,15 +50,11 @@ defineProps({
 }
 
 .fake-border {
-  border-top-left-radius: 100000px !important;
-  border-top-right-radius: 100000px !important;
   background-color: var(--ion-background-color) !important;
   min-height: 20px !important;
 }
 
 .brd {
-  border-top-left-radius: 20px !important;
-  border-top-right-radius: 20px !important;
   --ion-background-color: transparent;
   background-color: rgb(var(--ion-background-color-rgb)) !important;
   overflow: hidden;

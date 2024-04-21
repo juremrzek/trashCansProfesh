@@ -13,6 +13,7 @@ export class Level {
   completed: boolean
   current_pair_index = 0
   current_pair: Pair | null = null
+  failed = false
 
   constructor(pairs: Pair[], number_of_cans: number) {
     this.completed = false
@@ -35,5 +36,9 @@ export class Level {
 
   isCompleted() {
     return this.completed
+  }
+
+  fail() {
+    this.failed = true
   }
 }
