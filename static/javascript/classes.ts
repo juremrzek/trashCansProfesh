@@ -1,8 +1,10 @@
 export class Level{
     completed: boolean;
     required_score: number;
-    constructor(required_score: number){
+    number_of_cans: number;
+    constructor(required_score: number, number_of_cans: number){
         this.required_score = required_score;
+        this.number_of_cans = number_of_cans;
         this.completed = false;
         console.log("Level created")
     }
