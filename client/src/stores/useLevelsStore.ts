@@ -43,12 +43,12 @@ export const useLevelsStore = defineStore(
       new Trash("plate", "mixed", ""),
       new Trash("stiropor", "mixed", ""),
       new Trash("eggCarton", "paper", ""),
-      new Trash("newspaper", "paper", ""),
-      new Trash("wrappingPaper", "paper", ""),
-      new Trash("shirt", "fabric", ""),
-      new Trash("socks", "fabric", ""),
-      new Trash("tekstil", "fabric", ""),
-      new Trash("trousers", "fabric", ""),
+      new Trash("newspaper", "paper", "papir/newspaper.png"),
+      new Trash("wrappingPaper", "paper", "papir/wrappingPaper.png"),
+      new Trash("shirt", "fabric", "tekstilni/shirt.png"),
+      new Trash("socks", "fabric", "tekstilni/socks.png"),
+      new Trash("tekstil", "fabric", "tekstilni/tekstil.png"),
+      new Trash("trousers", "fabric", "tekstilni/trousers.png"),
     ])
 
     const levels = ref<Level[]>([
