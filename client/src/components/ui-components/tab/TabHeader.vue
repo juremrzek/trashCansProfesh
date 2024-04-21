@@ -1,6 +1,10 @@
 <template>
   <h3 class="ion-text-center">
-    <slot></slot>
+    <img
+      src="../../../../public/assets/designImages/roadmap/water-bottle-filled.svg"
+      width="40px"
+    />
+    15
   </h3>
   <div class="line"></div>
 </template>
