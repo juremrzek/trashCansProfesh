@@ -41,4 +41,8 @@ export class Level {
   fail() {
     this.failed = true
   }
+
+  complete() {
+    this.completed = true
+  }
 }

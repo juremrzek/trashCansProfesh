@@ -13,7 +13,10 @@ export const useGameStore = defineStore("game", () => {
 
   const currentLevel = ref<Level | null>(null)
   const currentLevelNumber = ref(0)
-  const gameOver = computed(() => currentLevel.value?.failed)
+  const gameOver = computed(
+    () => currentLevel.value?.failed || currentLevel.value?.completed
+  )
+  const gameCompleted = computed(() => currentLevel.value?.completed)
 
   const getTrash = () => {
     return currentLevel.value?.current_pair?.trash
@@ -63,6 +66,7 @@ export const useGameStore = defineStore("game", () => {
       playerStore.updateStreak()
       playerStore.score += 1
       currentLevel.value?.getNextPair()
+      currentLevel.value?.complete()
     } else {
       playerStore.fail(selectedCan)
       currentLevel.value?.fail()
@@ -80,6 +84,7 @@ export const useGameStore = defineStore("game", () => {
     getTrash,
     getBins,
     gameOver,
+    gameCompleted,
     start,
     evaluate,
   }

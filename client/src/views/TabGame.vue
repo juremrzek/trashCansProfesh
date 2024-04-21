@@ -28,7 +28,8 @@
         <trash-footer>
           <!-- getTrash -->
           <trash-box v-if="!gameOver"></trash-box>
-          <p v-else>Konec igre</p>
+          <p v-else-if="currentLevel?.completed">Uspešno ste zaključili nivo</p>
+          <p v-else>Tokrat vam ni uspelo, več sreče prihodnjič</p>
         </trash-footer>
       </backgroud-image>
     </template>
@@ -52,7 +53,7 @@ const { streak } = storeToRefs(usePlayerStore())
 
 const gameStore = useGameStore()
 const { getTrash, getBins, evaluate } = gameStore
-const { currentLevel, gameOver } = storeToRefs(gameStore)
+const { currentLevel, gameOver, gameCompleted } = storeToRefs(gameStore)
 
 const routes = useRouter()
 
