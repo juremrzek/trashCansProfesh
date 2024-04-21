@@ -78,6 +78,22 @@ export const useLevelsStore = defineStore(
               (can: Can) => can.category === "plastic"
             ) as Can,
           },
+          {
+            trash: trash.value.find(
+              (trash: Trash) => trash.category === "sokec"
+            ) as Trash,
+            can: cans.value.find(
+              (can: Can) => can.category === "plastic"
+            ) as Can,
+          },
+          {
+            trash: trash.value.find(
+              (trash: Trash) => trash.category === "sprite"
+            ) as Trash,
+            can: cans.value.find(
+              (can: Can) => can.category === "plastic"
+            ) as Can,
+          },
         ],
         2
       ),
@@ -103,6 +119,24 @@ export const useLevelsStore = defineStore(
             ) as Trash,
             can: cans.value.find((can: Can) => can.category === "bio") as Can,
           },
+          {
+            trash: trash.value.find(
+              (trash: Trash) => trash.category === "mleko"
+            ) as Trash,
+            can: cans.value.find((can: Can) => can.category === "plastic") as Can,
+          },
+          {
+            trash: trash.value.find(
+              (trash: Trash) => trash.category === "loncek"
+            ) as Trash,
+            can: cans.value.find((can: Can) => can.category === "plastic") as Can,
+          },
+          {
+            trash: trash.value.find(
+              (trash: Trash) => trash.category === "eggShell"
+            ) as Trash,
+            can: cans.value.find((can: Can) => can.category === "bio") as Can,
+          },
         ],
         3
       ),
@@ -123,6 +157,30 @@ export const useLevelsStore = defineStore(
           {
             trash: trash.value.find(
               (trash: Trash) => trash.category === "shirt"
+            ) as Trash,
+            can: cans.value.find(
+              (can: Can) => can.category === "fabric"
+            ) as Can,
+          },
+          {
+            trash: trash.value.find(
+              (trash: Trash) => trash.category === "ostankiKave"
+            ) as Trash,
+            can: cans.value.find(
+              (can: Can) => can.category === "bio"
+            ) as Can,
+          },
+          {
+            trash: trash.value.find(
+              (trash: Trash) => trash.category === "socks"
+            ) as Trash,
+            can: cans.value.find(
+              (can: Can) => can.category === "fabric"
+            ) as Can,
+          },
+          {
+            trash: trash.value.find(
+              (trash: Trash) => trash.category === "trousers"
             ) as Trash,
             can: cans.value.find(
               (can: Can) => can.category === "fabric"
