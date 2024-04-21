@@ -44,5 +44,6 @@ export const useGameStore = defineStore("game", () => {
     getBins,
     gameOver,
     start,
+    evaluate,
   }
 })
