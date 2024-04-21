@@ -35,7 +35,10 @@
           <!-- getTrash -->
           <trash-box v-if="!gameOver"></trash-box>
           <p v-else-if="currentLevel?.completed">Uspešno ste zaključili nivo</p>
-          <p v-else>Tokrat vam ni uspelo, več sreče prihodnjič</p>
+          <p v-else>
+            {{ toggleFail() }}
+            Tokrat vam ni uspelo, več sreče prihodnjič
+          </p>
         </trash-footer>
       </backgroud-image>
     </template>
