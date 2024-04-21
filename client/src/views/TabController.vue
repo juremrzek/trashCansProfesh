@@ -38,14 +38,6 @@
         >
           <img src="../../public/assets/designImages/menu/recycle-bin.svg" />
         </ion-tab-button>
-        <!-- Misshups -->
-        <ion-tab-button
-          tab="misshups"
-          @click.prevent="redirectTo('misshups')"
-          :class="selectedTabStyle('misshups')"
-        >
-          <img src="../../public/assets/designImages/menu/laugh.svg" />
-        </ion-tab-button>
       </ion-tab-bar>
       <!-- End bottom tool bar -->
     </ion-tabs>
