@@ -6,13 +6,18 @@
     <template #body>
       <div class="roadmap">
         <ButtonAnimal
-          @click.prevent="redirectTo('game')"
+          @click.prevent="
+            () => {
+              redirectTo('game')
+              start(index)
+            }
+          "
           v-for="(src, index) in images"
           :key="src"
           :imgSrc="src"
-          :altText="`Image loaded from assets`"
           class="node"
-          :class="{ 'with-line': index < images.length - 1 }">
+          :class="{ 'with-line': index < images.length - 1 }"
+        >
         </ButtonAnimal>
       </div>
     </template>
@@ -23,17 +28,24 @@
 import TabTemplate from "@/components/ui-components/tab/TabTemplate.vue"
 import TabHeader from "@/components/ui-components/tab/TabHeader.vue"
 import ButtonAnimal from "@/components/ui-components/button/ButtonAnimal.vue"
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from "vue"
 import { useTabNavigation } from "@/composables/useTabNavigation"
+import { useGameStore } from "@/stores/useGameStore"
 
-const {redirectTo} = useTabNavigation()
+const gameStore = useGameStore()
+const { start } = gameStore
 
-const images = ref<string[]>([]);
+const { redirectTo } = useTabNavigation()
+
+const images = ref<string[]>([])
 
 onMounted(() => {
-  const context = require.context('../../public/assets/designImages/roadmap/animals', true);
-  images.value = context.keys().map(context);
-});
+  const context = require.context(
+    "../../public/assets/designImages/roadmap/animals",
+    true
+  )
+  images.value = context.keys().map(context)
+})
 </script>
 
 <style>
@@ -52,7 +64,7 @@ onMounted(() => {
   margin-bottom: 50px;
 }
 .node.with-line::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 10px;
   height: 85px;
