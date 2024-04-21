@@ -13,11 +13,12 @@ class MainClass {
         let can_categories = [...Trash.categories]
         can_categories = can_categories.filter(can => can !== this.current_trash.category);
         can_categories = this.shuffleArray(can_categories);
+        console.log(can_categories)
         let cans: Can[] = [];
-        for(let i=0; i<number_of_cans-1; i++){
+        cans.push(new Can(this.current_trash.category));
+        for(let i=1; i<number_of_cans; i++){
             cans.push(new Can(can_categories[i]));
         }
-        console.log(cans);
         return cans;
     }
 
@@ -57,3 +58,5 @@ class MainClass {
         }
     }
 }
+let c = new MainClass();
+console.log(c.generateCans(2))

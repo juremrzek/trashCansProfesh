@@ -26,7 +26,7 @@ export class Player{
     }
 }
 export class Trash{
-    static categories = ["paper", "plastic", "mixed"] //itd
+    static categories = ["paper", "plastic", "mixed", "dangerous", "glass", "bio"] //itd
     category: string;
     constructor(category: string){
         console.log("Trash created")
