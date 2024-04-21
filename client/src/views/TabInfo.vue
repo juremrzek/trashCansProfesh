@@ -5,6 +5,7 @@
     </template>
     <template #body>
       <image-circle
+      class="image-circle-position"
       :images="images"
           :altText="`Image loaded from assets`"></image-circle>
     </template>
@@ -23,3 +24,11 @@ const images = ref<string[]>([]);
   images.value = context.keys().map(context) as string[];
 
 </script>
+
+<style>
+.image-circle-position {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+}
+</style>

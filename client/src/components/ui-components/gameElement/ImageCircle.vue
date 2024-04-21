@@ -3,16 +3,17 @@
       <div class="center">
         <img src="../../../../public/assets/trashImages/kante/embalaza.png" alt="Trash Can" class="kanta-img" />
       </div>
+      <div class="circle-wrapper" >
       <div
         v-for="(item, index) in images"
         :key="index"
-        class="center-circles"
       >
         <img src="../../../../public/assets/designImages/game/circle.svg" alt="Trash Can"
         :style="getCircleStyle(index)"/>
         <span :style="getItemStyle(index)">
             <img :src="item" :alt="altText" width="5%" class="trash-images">
         </span>
+      </div>
       </div>
     </div>
   </template>
@@ -23,8 +24,8 @@
       return {
         items: [], // Example items
         radius: 140, //
-        centerX: 150, 
-        centerY: 150, 
+        centerX: 0, 
+        centerY: 0, 
         degreesBetweenItems: 90, 
       };
     }, 
@@ -79,21 +80,13 @@
     width: 100%;
     height: 80vh;
   }
-  
   .center {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .center-circles {
-    position: relative;
-    left: 20%;
+    left: 13%;
+    top: 5%;
   }
   .kanta-img {
-    position: relative;
     width: 30%;
-    left: 25%;
   }
   .trash-images {
     /* size: 40%; */
@@ -101,6 +94,7 @@
     max-width: 200px;
     max-height: 200px;
   }
+
 
   </style>
   
