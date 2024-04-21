@@ -1,8 +1,12 @@
 export class Level{
     completed: boolean;
     required_score: number;
-    constructor(required_score: number){
+    number_of_cans: number;
+    cans: Can[];
+    constructor(required_score: number, number_of_cans: number, cans: Can[]){
         this.required_score = required_score;
+        this.number_of_cans = number_of_cans;
+        this.cans = cans;
         this.completed = false;
         console.log("Level created")
     }
@@ -26,7 +30,7 @@ export class Player{
     }
 }
 export class Trash{
-    static categories = ["paper", "plastic", "mixed"] //itd
+    static categories = ["paper", "plastic", "mixed", "dangerous", "glass", "bio"] //itd
     category: string;
     constructor(category: string){
         console.log("Trash created")
