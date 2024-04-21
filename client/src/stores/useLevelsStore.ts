@@ -7,7 +7,10 @@ import { ref } from "vue"
 export const useLevelsStore = defineStore(
   "levels",
   () => {
-    const cans = ref<Can[]>([])
+    const cans = ref<Can[]>([new Can("paper", ""), 
+      new Can("plastic", ""), new Can("plastic", ""),
+      new Can("dangerous", ""), new Can("bio", ""),
+      new Can("fabric", ""), new Can("mixed", "")]);
     // @ts-ignore
     const trash = ref<Trash>([])
 
