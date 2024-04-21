@@ -6,6 +6,7 @@
     <template #body>
       <div class="roadmap">
         <ButtonAnimal
+          @click.prevent="redirectTo('game')"
           v-for="(src, index) in images"
           :key="src"
           :imgSrc="src"
@@ -23,6 +24,9 @@ import TabTemplate from "@/components/ui-components/tab/TabTemplate.vue"
 import TabHeader from "@/components/ui-components/tab/TabHeader.vue"
 import ButtonAnimal from "@/components/ui-components/button/ButtonAnimal.vue"
 import { ref, onMounted } from 'vue';
+import { useTabNavigation } from "@/composables/useTabNavigation"
+
+const {redirectTo} = useTabNavigation()
 
 const images = ref<string[]>([]);
 
