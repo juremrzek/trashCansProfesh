@@ -26,6 +26,7 @@ defineProps({
   justify-content: center;
 }
 .trash-box-border {
+  margin-left: 1rem;
   width: clamp(90px, 9vw, 9vw);
   height: clamp(90px, 9vw, 9vw);
   background: linear-gradient(var(--ion-color-danger-contrast), #a3e5ff);
