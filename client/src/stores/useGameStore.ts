@@ -1,4 +1,4 @@
-import { defineStore } from "pinia"
+import { defineStore, storeToRefs } from "pinia"
 import { useLevelsStore } from "@/stores/useLevelsStore"
 import { usePlayerStore } from "@/stores/usePlayerStore"
 import { Level } from "@/entities/Level"
@@ -7,6 +7,8 @@ import { Can } from "@/entities/Can"
 
 export const useGameStore = defineStore("game", () => {
   const levelsStore = useLevelsStore()
+  const { cans } = storeToRefs(levelsStore)
+  const { getLevel } = levelsStore
   const playerStore = usePlayerStore()
 
   const currentLevel = ref<Level | null>(null)
@@ -21,32 +23,37 @@ export const useGameStore = defineStore("game", () => {
     switch (currentLevelNumber.value) {
       case 1:
         return [
-          levelsStore.cans.find((can: Can) => can.category === "plastic"),
-          levelsStore.cans.find((can: Can) => can.category === "mixed"),
+          currentLevel.value?.current_pair?.can,
+          cans.value.find((can: Can) => can.category === "plastic"),
+          cans.value.find((can: Can) => can.category === "mixed"),
         ]
       case 2:
         return [
-          levelsStore.cans.find((can: Can) => can.category === "plastic"),
-          levelsStore.cans.find((can: Can) => can.category === "mixed"),
-          levelsStore.cans.find((can: Can) => can.category === "bio"),
+          currentLevel.value?.current_pair?.can,
+          cans.value.find((can: Can) => can.category === "plastic"),
+          cans.value.find((can: Can) => can.category === "mixed"),
+          cans.value.find((can: Can) => can.category === "bio"),
         ]
       case 3:
         return [
-          levelsStore.cans.find((can: Can) => can.category === "plastic"),
-          levelsStore.cans.find((can: Can) => can.category === "fabric"),
-          levelsStore.cans.find((can: Can) => can.category === "bio"),
+          currentLevel.value?.current_pair?.can,
+          cans.value.find((can: Can) => can.category === "plastic"),
+          cans.value.find((can: Can) => can.category === "fabric"),
+          cans.value.find((can: Can) => can.category === "bio"),
         ]
       case 4:
         return [
-          levelsStore.cans.find((can: Can) => can.category === "dangerous"),
-          levelsStore.cans.find((can: Can) => can.category === "fabric"),
-          levelsStore.cans.find((can: Can) => can.category === "bio"),
+          currentLevel.value?.current_pair?.can,
+          cans.value.find((can: Can) => can.category === "dangerous"),
+          cans.value.find((can: Can) => can.category === "fabric"),
+          cans.value.find((can: Can) => can.category === "bio"),
         ]
       default:
         return [
-          levelsStore.cans.find((can: Can) => can.category === "plastic"),
-          levelsStore.cans.find((can: Can) => can.category === "paper"),
-          levelsStore.cans.find((can: Can) => can.category === "glass"),
+          currentLevel.value?.current_pair?.can,
+          cans.value.find((can: Can) => can.category === "plastic"),
+          cans.value.find((can: Can) => can.category === "paper"),
+          cans.value.find((can: Can) => can.category === "glass"),
         ]
     }
   }
@@ -61,14 +68,11 @@ export const useGameStore = defineStore("game", () => {
     }
   }
 
-  const start = (level?: number) => {
-    if (level) {
-      currentLevel.value = levelsStore.getLevel(level)
-      currentLevelNumber.value = level
-    } else {
-      currentLevel.value = levelsStore.getLevel(playerStore.maxLevel)
-      currentLevelNumber.value = playerStore.maxLevel
-    }
+  const start = (level = playerStore.maxLevel) => {
+    console.log("Starting level", level)
+    console.log("getLevel", getLevel(level))
+    currentLevel.value = getLevel(level)
+    currentLevelNumber.value = level
   }
 
   return {
