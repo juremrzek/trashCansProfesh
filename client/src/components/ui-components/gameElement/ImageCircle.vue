@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <div class="center">
-        <img src="../../../../public/assets/trashImages/kante/embalaza.png" alt="Trash Can" class="kanta-img" />
+        <img :src="kanta" alt="Trash Can" class="kanta-img" />
       </div>
       <div class="circle-wrapper" >
       <div
@@ -67,6 +67,10 @@
         required: true,
       },
       altText: {
+        type: String,
+        required: true,
+      },
+      kanta: {
         type: String,
         required: true,
       },

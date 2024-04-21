@@ -34,7 +34,47 @@ export const useLevelsStore = defineStore(
       new Trash("socks", "fabric", ""), new Trash("tekstil", "fabric", ""),
       new Trash("trousers", "fabric", "")
     ]);
-    const levels = ref<Level[]>([])
+    
+    const levels = ref<Level[]>([new Level(
+      [{
+        trash: trash.value.find((trash: Trash) => trash.category === "loncek"),
+        can: cans.value.find((can: Can) => can.category === "plastic")
+      }, 
+      {
+        trash: trash.value.find((trash: Trash) => trash.category === "sokec"),
+        can: cans.value.find((can: Can) => can.category === "plastic")
+      }, 
+      {
+        trash: trash.value.find((trash: Trash) => trash.category === "vrecka"),
+        can: cans.value.find((can: Can) => can.category === "plastic")
+      }], 2
+    ), new Level(
+      [{
+        trash: trash.value.find((trash: Trash) => trash.category === "apple"),
+        can: cans.value.find((can: Can) => can.category === "bio")
+      }, 
+      {
+        trash: trash.value.find((trash: Trash) => trash.category === "can"),
+        can: cans.value.find((can: Can) => can.category === "plastic")
+      }, 
+      {
+        trash: trash.value.find((trash: Trash) => trash.category === "bananaPeel"),
+        can: cans.value.find((can: Can) => can.category === "bio")
+      }], 3
+    ), new Level(
+      [{
+        trash: trash.value.find((trash: Trash) => trash.category === "eggShell"),
+        can: cans.value.find((can: Can) => can.category === "bio")
+      }, 
+      {
+        trash: trash.value.find((trash: Trash) => trash.category === "apple"),
+        can: cans.value.find((can: Can) => can.category === "bio")
+      }, 
+      {
+        trash: trash.value.find((trash: Trash) => trash.category === "shirt"),
+        can: cans.value.find((can: Can) => can.category === "fabric")
+      }], 3
+    )])
 
     const getLevel = (level: number) => {
       return levels.value[level]
